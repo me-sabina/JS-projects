@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #282c34;
+    color: #fff;
+    margin: 0;
+}
+
+.music-player {
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+#album-art {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.controls button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.time-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#progress {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.volume-control {
+    margin: 10px 0;
+}
+
+.playlist, .favorite-songs {
+    margin-top: 20px;
+}
+
+.playlist ul, .favorite-songs ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.playlist li, .favorite-songs li {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.playlist li:hover, .favorite-songs li:hover {
+    background-color: #f4f4f4;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #fff;
+}
+
+body.dark-mode .music-player {
+    background-color: #333;
+    color: #fff;
+}
+
+button {
+    color: inherit;
+}

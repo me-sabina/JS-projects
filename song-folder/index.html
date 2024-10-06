@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="music-player">
+        <h1>Music Player</h1>
+
+        <div class="current-song">
+            <h3 id="song-title">Song Title</h3>
+            <img id="album-art" src="" alt="Album Art">
+        </div>
+
+        <div class="controls">
+            <button id="prev">⏮️</button>
+            <button id="play-pause">▶️</button>
+            <button id="next">⏭️</button>
+            <button id="repeat">🔁</button>
+            <button id="shuffle">🔀</button>
+        </div>
+
+        <div class="time-info">
+            <span id="current-time">00:00</span>
+            <input type="range" id="progress" value="0" min="0" max="100">
+            <span id="total-time">00:00</span>
+        </div>
+
+        <div class="volume-control">
+            <input type="range" id="volume" value="100" min="0" max="100">
+        </div>
+
+        <div class="playlist">
+            <ul id="song-list">
+                <!-- Playlist songs will be dynamically generated here -->
+            </ul>
+        </div>
+
+        <div class="favorite-songs">
+            <h3>Favorites</h3>
+            <ul id="favorites-list">
+                <!-- Favorite songs will be dynamically generated here -->
+            </ul>
+        </div>
+
+        <button id="theme-toggle">Toggle Dark Mode</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
