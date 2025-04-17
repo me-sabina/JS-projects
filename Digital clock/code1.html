@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Digital Clock</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Courier New', monospace;
+      background-color: #121212;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    #clock {
+      font-size: 80px;
+      letter-spacing: 4px;
+    }
+
+    #date {
+      font-size: 24px;
+      margin-top: 10px;
+    }
+
+    .buttons {
+      margin-top: 30px;
+    }
+
+    button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #ff9800;
+      color: #000;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #e67e22;
+    }
+
+    body.light {
+      background-color: #f0f0f0;
+      color: #000;
+    }
+
+    body.light button {
+      background-color: #333;
+      color: #fff;
+    }
+
+    body.light button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="clock">00:00:00</div>
+    <div id="date">Loading date...</div>
+
+    <div class="buttons">
+      <button onclick="toggleFormat()">Toggle 12/24 Hour</button>
+      <button onclick="toggleTheme()">Toggle Dark/Light Mode</button>
+    </div>
+  </div>
+
+  <script>
+    let use12HourFormat = true;
+
+    function updateClock() {
+      const now = new Date();
+      let hours = now.getHours();
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
+      let period = '';
+
+      if (use12HourFormat) {
+        period = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12 || 12; // convert 0 to 12
+      }
+
+      const format = (num) => (num < 10 ? '0' + num : num);
+      const timeString = `${format(hours)}:${format(minutes)}:${format(seconds)} ${use12HourFormat ? period : ''}`;
+      const dateString = now.toDateString();
+
+      document.getElementById('clock').textContent = timeString;
+      document.getElementById('date').textContent = dateString;
+    }
+
+    function toggleFormat() {
+      use12HourFormat = !use12HourFormat;
+      updateClock();
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle('light');
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock(); // Call once immediately
+  </script>
+</body>
+</html>
